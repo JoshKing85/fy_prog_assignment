@@ -172,3 +172,115 @@ def is_prime(num):
         prime = True
 
     return prime
+def celsius_to_fahrenheit(celsius):
+
+    #formula for conversion (9/5) * C + 32   
+    fahrenheit = ((9/5)*celsius) + 32   
+    
+    return fahrenheit
+
+def decrypt_cypher_text(encrypted_text, key):
+    
+
+    new_char = ''
+    plain_text = ''
+    
+    for character in encrypted_text:
+        
+        # Use chr() routine inconjuction wtih ord() routine subracted by key to determine string character.
+        new_char = chr(ord(character)- key)
+
+        plain_text = plain_text + new_char
+
+
+    return plain_text
+
+def find_maximum_difference(a, b):
+
+    
+    max_diff = 0    
+
+    # Initiate variable for array minumum and maxium values using min() and max() function.
+    max_1, max_2, min_1, min_2 = max(a), max(b), min(a), min(b)
+    
+    # Determine difference of min, max of both lists.
+    first_max = max_1 - min_2
+    second_max = max_2 - min_1
+
+    #Select greatest difference.
+    if first_max >= second_max:
+        max_diff = first_max
+
+    else:
+        max_diff = second_max
+    
+    
+    return max_diff
+
+def fuel_cost(distance_miles):
+    # contants for for formula
+    MPG = 50
+    LITRES = 4.5
+    PRICE_PER_LITRE = 1.49
+
+    f_cost = PRICE_PER_LITRE * (distance_miles / MPG) * LITRES # Formula with constants and variable miles_travelled
+
+    return f_cost
+
+def is_golden_number(n):
+
+    is_gold = False
+    
+    # Nested loop to find summation of n
+    for a in range(n):
+        for b in range(n):
+            
+            # Checks if argument meets all propositional statements.
+            if a + b == n and a*b % 1000 == 0:
+                is_gold = True
+                break
+            
+                
+    return is_gold 
+
+def km_to_miles(kilometers):
+
+    # Constant conversion as directly proportionate.
+    MILE_CON = 0.62
+
+    miles = kilometers * MILE_CON 
+    miles = round(miles, 3) # Library routine, round()  for decimal required.
+    
+    return miles
+
+def letter_occurrence(input_string):
+
+    # Ordinal for A, a.
+    ord_ca, ord_a  = 65, 97
+    
+    # Set variable to be returned.
+    total = 0
+    
+    for char in input_string:
+
+        if ord(char) == ord_ca or ord(char) == ord_a:
+            
+            total += 1
+
+    return total
+
+def annual_net_income(gross_salary):
+
+
+    net = 0
+    # Deductions determined from equal or greater if selections.
+    if gross_salary  >= 45000:
+        net = gross_salary  * (1 - 0.5) # All deductions use same formula (1 - n) for percentage reduction.
+    
+    elif gross_salary  >= 30000:
+        net = gross_salary  * (1 - 0.3)
+
+    else:
+        net = gross_salary  * (1 - 0.15)
+    
+    return net
