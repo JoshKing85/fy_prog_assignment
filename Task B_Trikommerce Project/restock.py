@@ -1,17 +1,18 @@
 def restock_inventory(available_items, inventory_records, current_day):
-
+    # If day = 0 stock full set inventory to intial state, full stock.
     if current_day == 0:
         inventory_records.append([0, 0, 2000, 2000])
         available_items = 2000
     
-    elif current_day %7 == 0:
+    
+    # If day multiple of 7 calculate restock amount, update inventory_records to full stock and restock amount.
+    elif current_day % 7 == 0:
         restocked_items = 2000 - available_items
         inventory_records.append([current_day, 0, restocked_items, 2000])
         available_items = 2000
     
     
-
-
+    # Return available items for next iteration.
     return available_items
   
   
